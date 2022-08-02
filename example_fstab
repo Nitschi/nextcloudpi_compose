@@ -1,0 +1,7 @@
+proc                                        /proc               proc    defaults                    0       0
+PARTUUID=abcdefgh-01                        /boot               vfat    defaults                    0       2
+PARTUUID=abcdefgh-02                        /                   ext4    defaults,noatime            0       1
+UUID=abcdefgh-asdf-asdf-asdf-asdfasdfasdf   /media/data_disk    ext4    users,rw,exec               0       0
+UUID=abcdefgh-asdf-asdf-asdf-asdfasdfasdf   /media/backup_disk  ext4    auto,nofail,sync,users,rw   0       0
+# a swapfile is not a swap partition, no line here
+#   use  dphys-swapfile swap[on|off]  for that
