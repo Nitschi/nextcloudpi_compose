@@ -4,7 +4,7 @@
 ##################################
 
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-source "${SCRIPTPATH}/borg_settings.bash"
+source "${SCRIPTPATH}/borg_backup_settings.bash"
 
 startTime=$(date +%s)
 currentDate=$(date --date @"$startTime" +"%Y%m%d_%H%M%S")
