@@ -9,6 +9,8 @@ services:
     volumes:
       - "${DATA_DISK_PATH}:/data"
       - "${BACKUP_DISK_PATH}:/backup"
+    # Needed due to error with access to the system clock (https://unix.stackexchange.com/q/598471)
+    privileged: true
     
     restart: unless-stopped
     image: ownyourbits/nextcloudpi
