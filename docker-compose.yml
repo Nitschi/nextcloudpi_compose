@@ -3,12 +3,12 @@ services:
     container_name: ncp_container
     command: "${NEXTCLOUD_URL}"
     ports:
-      -80:80
-      -443:443
-      -4443:4443
+      - "80:80"
+      - "443:443"
+      - "4443:4443"
     volumes:
-      -"${DATA_DISK_PATH}":/data
-      -"${BACKUP_DISK_PATH}":/backup
+      - "${DATA_DISK_PATH}:/data"
+      - "${BACKUP_DISK_PATH}:/backup"
     
     restart: unless-stopped
     image: ownyourbits/nextcloudpi
