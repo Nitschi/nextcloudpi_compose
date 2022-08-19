@@ -22,6 +22,9 @@ See [The Pi Hut: Mount external drive on Raspberry Pi](https://thepihut.com/blog
 
 You can base your fstab on example_fstab in this repo
 
+### Setup unattended-upgrades (Optional)
+See [cyberciti.biz: How to setup automatic updates](https://www.cyberciti.biz/faq/how-to-set-up-automatic-updates-for-ubuntu-linux-18-04/)
+
 ### Install Borg Backup
 
 `sudo apt update && sudo apt install borgbackup`
