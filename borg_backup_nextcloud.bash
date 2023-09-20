@@ -40,6 +40,8 @@ echo -e "maintenance mode is being deactivated"
 sudo docker exec -u www-data ${dockerContainerName} php /var/www/nextcloud/occ maintenance:mode --off
 
 borg prune --progress --stats $borgRepository --keep-within=7d --keep-weekly=2 --keep-monthly=6
+borg compact $borgRepository
+
 endTime=$(date +%s)
 endDateReadable=$(date --date @"$endTime" +"%d.%m.%Y - %H:%M:%S")
 duration=$((endTime-startTime))
