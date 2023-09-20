@@ -1,11 +1,13 @@
+version: "3.5"
 services:
   nextcloudpi:
     container_name: ncp_container
+    hostname: nextcloud
     command: "${NEXTCLOUD_URL}"
-    ports:
-      - "80:80"
-      - "443:443"
-      - "4443:4443"
+    # ports:
+    #   - "80:80"
+    #   - "443:443"
+    #   - "4443:4443"
     volumes:
       - "${DATA_DISK_PATH}:/data"
       - "${BACKUP_DISK_PATH}:/backup"
@@ -13,4 +15,11 @@ services:
     privileged: true
     
     restart: unless-stopped
-    image: ownyourbits/nextcloudpi
+    image: ownyourbits/nextcloudpi:old
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    name: "my_network"
+    external: ${CONNECT_TO_EXTERNAL_DOCKER_NETWORK}
