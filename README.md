@@ -22,16 +22,27 @@ See [The Pi Hut: Mount external drive on Raspberry Pi](https://thepihut.com/blog
 
 You can base your fstab on example_fstab in this repo
 
-### Setup unattended-upgrades (Optional)
-See [cyberciti.biz: How to setup automatic updates](https://www.cyberciti.biz/faq/how-to-set-up-automatic-updates-for-ubuntu-linux-18-04/)
-
 ### Install Borg Backup
 
 `sudo apt update && sudo apt install borgbackup`
 
+### Setup remote backup mount (SSH)
+As root
+- `apt install sshfs`
+- `mkdir /mnt/your_mountpoint`
+- `nano /etc/fstab` and add
+
+    - `your_user@your_other_server:~/ /mnt/your_mountpoint fuse.sshfs noauto,x-systemd.automount,_netdev,reconnect,identityfile=/home/sammy/.ssh/id_rsa,allow_other,default_permissions 0 0`
+- `ssh-copy-id your_user@your_other_server`
+
 ## Config
 
 - Fill in your infos in the .env file
+
+- Initialize borg repository:
+    - `borg init -e repokey-blake2 /mnt/your_mountpoint`
+    - Set and note password
+    - Export and save key: `borg key export /mnt/yourmountpoint/data exported-key.txt`
 
 - Fill in your setup info into the borg_backup_settings.bash
 
