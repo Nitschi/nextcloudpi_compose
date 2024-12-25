@@ -1,3 +1,5 @@
+Deprecated: Use [Nextcloud/all-in-one](https://github.com/nextcloud/all-in-one) instead. Nextcloudpi does not get updates anymore.
+
 # Nextcloudpi Compose
 
 Aims to provide everything needed to easily spin up a nextcloud instance in minutes using nextcloudpi docker
